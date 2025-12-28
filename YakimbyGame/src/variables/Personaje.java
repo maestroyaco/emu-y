@@ -1657,11 +1657,12 @@ public void Conectarse() {
     // 5. CARGA DEL MUNDO (GDM / MAPA)
     // =========================================================================
     
-    // Celdas de Teleport (Custom Mod)
-    GestorSalida.enviar(this, "#gm" + this.getMapa().celdasTPs);
+    // Celdas de Teleport (Custom Mod) -- REMOVED for Modern Client compatibility
+    // GestorSalida.enviar(this, "#gm" + this.getMapa().celdasTPs);
 
     // GDM: Inicia la carga del mapa. Esto activará el paquete 'GI' desde el cliente.
-    GestorSalida.ENVIAR_GDM_CAMBIO_DE_MAPA(out, _mapa, this);
+    // Usamos MAPDATA_COMPLETO para enviar la geometria inmediatamente, necesario para loader43.
+    GestorSalida.ENVIAR_GDM_MAPDATA_COMPLETO(this);
 
     // =========================================================================
     // 6. LÓGICA LEGACY Y COMPROBACIONES (Items, Oficios, Niveles)
@@ -4576,8 +4577,12 @@ private void enviarAlertasEventos() {
 		mapaanterior = nuevoMapaID;
 		celdaanterior = nuevaCeldaID;
 		setCargandoMapa(true);
-		String packet = "GA;2;" + _ID + ";" + (char) 0x00 + "GDM|" + getMapa().getID() + "|" + getMapa().getFecha()
-				+ "|" + getMapa().getCodigo();
+		// Enviamos movimiento y luego carga de mapa completa
+		GestorSalida.enviar(this, "GA;2;" + _ID);
+		GestorSalida.ENVIAR_GDM_MAPDATA_COMPLETO(this);
+
+		/* String packet = "GA;2;" + _ID + ";" + (char) 0x00 + "GDM|" + getMapa().getID() + "|" + getMapa().getFecha()
+				+ "|" + getMapa().getCodigo(); */
 		if (getIntercambiandoCon() != 0 || cerrojocasa || getCasa() != null || getTrueque() != null
 				|| getEnCercado() != null || getListaArtesanos() || getRompiendo() || getHaciendoTrabajo() != null
 				|| getIntercambiandoCon() != 0 || getCofre() != null || getIntercambio() != null || enBanco()
@@ -4663,7 +4668,7 @@ private void enviarAlertasEventos() {
 			}
 		}
 		// NPC INTERACTIVOS :
-		GestorSalida.enviar(this, packet + (char) 0x00 + "#gm" + this.getMapa().celdasTPs);
+		// GestorSalida.enviar(this, packet + (char) 0x00 + "#gm" + this.getMapa().celdasTPs);
 		switch (nuevoMapaID) {
 		case 7549: // Mapa Start
 			Interactivos.mensajeNPC(-2, "Banquero", "Hola aventurero, cÓmo te puedo ayudar???", this, nuevoMapaID);
