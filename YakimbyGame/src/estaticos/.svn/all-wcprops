@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svnroot/ancestrar/!svn/ver/40/trunk/src/common
+END
+Ancestra.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/ancestrar/!svn/ver/36/trunk/src/common/Ancestra.java
+END
+Commands.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/ancestrar/!svn/ver/37/trunk/src/common/Commands.java
+END
+ConditionParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/ancestrar/!svn/ver/37/trunk/src/common/ConditionParser.java
+END
+SocketManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/ancestrar/!svn/ver/39/trunk/src/common/SocketManager.java
+END
+World.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/ancestrar/!svn/ver/39/trunk/src/common/World.java
+END
+Formulas.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/ancestrar/!svn/ver/40/trunk/src/common/Formulas.java
+END
+IA.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/ancestrar/!svn/ver/40/trunk/src/common/IA.java
+END
+SQLManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ancestrar/!svn/ver/40/trunk/src/common/SQLManager.java
+END
+Pathfinding.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ancestrar/!svn/ver/39/trunk/src/common/Pathfinding.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/ancestrar/!svn/ver/37/trunk/src/common/Constants.java
+END
+CryptManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/ancestrar/!svn/ver/32/trunk/src/common/CryptManager.java
+END

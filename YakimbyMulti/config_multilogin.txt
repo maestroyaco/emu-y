@@ -1,0 +1,53 @@
+# =====================================================
+# CONFIGURACION MULTI-LOGIN - DAHO EMU
+# =====================================================
+# Este servidor maneja la autenticacion de cuentas
+# y la lista de servidores disponibles
+# =====================================================
+
+# VERSION DEL CLIENTE DOFUS
+# Usar "ANY" para aceptar cualquier versión, o la versión específica (ej: 1.43.7)
+# IMPORTANTE: Sin espacios alrededor del valor, sin comillas
+VERSION_CLIENTE = ANY
+# PUERTOS
+PUERTO_LOGIN = 2450
+PUERTO_SINCRONIZADOR = 9669
+
+# BASE DE DATOS (Cuentas)
+BD_HOST = localhost
+BD_PORT = 3306
+BD_USUARIO = root
+BD_PASS = 
+BD_CUENTAS = serveur
+
+# CONFIGURACION DE SERVIDORES DE JUEGO
+# Formato: ID,PUERTO;ID2,PUERTO2
+# Ejemplo: 11,5556;12,5557
+CONFIG_SERVERS = 11,5557
+
+# SEGURIDAD
+MAX_CUENTAS_POR_IP = 8
+MAX_CONEXION_POR_SEGUNDO = 10
+MILISEGUNDOS_SIG_CONEXION = 500
+SEGUNDOS_ESPERA = 15
+PARAM_ANTI_DDOS = true
+PERMITIR_MULTICUENTA = true
+
+# FILA DE ESPERA
+ACTIVAR_FILA_ESPERA = true
+LIMITE_JUGADORES = 500
+
+# DEBUG
+MOSTRAR_RECIBIDOS = false
+MOSTRAR_ENVIADOS = false
+MOSTRAR_SINCRONIZACION = true
+MODO_DEBUG = false
+
+# TIEMPOS (segundos)
+SEGUNDOS_TRANSACCION_BD = 300
+SEGUNDOS_ESTADISTICAS = 300
+
+# MENSAJE DE BIENVENIDA (sonido MP3 opcional)
+SONIDO_BIENVENIDA = 
+URL_LINK_MP3 = 
+
