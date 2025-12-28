@@ -234,20 +234,18 @@ public void analizar_Packets(String packet, boolean original) {
 
 	        case 'I': // Recibe GI (El cliente pide los datos del mundo)
 	        case 'i':
-	            // PASO 1: Enviar los datos de las celdas (Indispensable para Electron)
-	            // Esto le da al cliente el terreno, líneas de visión y celdas caminables
+	            // [MODERN FIX] Fase 1: Geometria del Mapa
+	            // El cliente 1.43+ necesita GDM explicito aqui para renderizar celdas antes de entidades.
 	            GestorSalida.enviar(_out, "GDM|" + _perso.getMapa().getMapData());
 
-	            // PASO 2: Enviar los personajes y criaturas (GM)
-	            String gms = _perso.getMapa().getGMsPackets(_perso);
-	            if (!gms.isEmpty()) GestorSalida.enviar(_out, gms);
-
-	            // PASO 3: Enviar objetos interactivos (GDF)
-	            String gdf = _perso.getMapa().getObjectosGDF(_perso);
-	            if (!gdf.isEmpty()) GestorSalida.enviar(_out, gdf);
-
-	            // PASO 4: Enviar cantidad de peleas (fC)
-	            GestorSalida.enviar(_out, "fC" + _perso.getMapa().getNumeroPeleas());
+	            // [MODERN FIX] Fase 2: Sincronizacion de Entidades y Estados (Legacy Bridge)
+	            // Delegamos a la logica centralizada de Estaticos para garantizar el orden critico:
+	            // 1. GDK (Indispensable para desbloquear UI)
+	            // 2. GM Completo (PJs, Mobs, NPCs, Recaudadores, Mercantes, Prismas, Monturas)
+	            // 3. GDO (Objetos de cria) y GDF (Interactivos)
+	            // 4. Estados (Casas, Espadas de Pelea, Objetos tirados)
+	            // 5. Finalizacion de carga (setCargandoMapa(false))
+	            Estaticos.juego_Extra_Informacion(_perso, _out);
 	            break;
 
 	        default:

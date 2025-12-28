@@ -6956,7 +6956,7 @@ public class Estaticos {
 		_perso.borrarGA(AJ);
 	}
 
-	private static void juego_Extra_Informacion(Personaje _perso, PrintWriter _out) {
+	public static void juego_Extra_Informacion(Personaje _perso, PrintWriter _out) {
 		try {
 			boolean reconecta = false;
 			if (_perso.getPelea() != null) {
